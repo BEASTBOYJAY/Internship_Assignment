@@ -20,13 +20,13 @@ The application follows a linear processing pipeline designed to convert unstruc
 
 ```mermaid
 graph TD
-    A[User Interface (app.py)] -->|1. Upload Document| B(Document Parser (miner_u_parser));
-    B -->|2. Extract Markdown/Text| C{Main Orchestrator (main.py)};
-    C -->|3. Load Instructions| D[Prompt Templates (prompt_templates.py)];
-    C -->|4. Send Context + Prompt| E[LLM Service (OpenAI/Gemini)];
-    E -->|5. Raw Response| C;
-    C -->|6. Validate & Structure| F[Data Models (models.py)];
-    F -->|7. Structured JSON Output| A;
+    A["User Interface (app.py)"] -->|1. Upload Document| B("Document Parser (miner_u_parser)")
+    B -->|2. Extract Markdown/Text| C{"Main Orchestrator (main.py)"}
+    C -->|3. Load Instructions| D["Prompt Templates (prompt_templates.py)"]
+    C -->|4. Send Context + Prompt| E["LLM Service (OpenAI/Gemini)"]
+    E -->|5. Raw Response| C
+    C -->|6. Validate & Structure| F["Data Models (models.py)"]
+    F -->|7. Structured JSON Output| A
 ```
 
 ### Pipeline Overview
